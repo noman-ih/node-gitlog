@@ -44,8 +44,8 @@ function gitlog(options, cb) {
   if (!existsSync(options.repo)) throw new Error('Repo location does not exist');
 
   var defaultOptions =
-    { number: 10
-    , fields: [ 'abbrevHash', 'hash', 'subject', 'authorName' ]
+    {
+    fields: [ 'abbrevHash', 'hash', 'subject', 'authorName' ]
     , nameStatus:true
     , findCopiesHarder:false
     , all:false
@@ -69,9 +69,6 @@ function gitlog(options, cb) {
   if(options.noMerges) {
     command += '--no-merges '
   }
-
-  command += '-n ' + options.number
-
   command = addOptional(command, options)
 
   // Start of custom format
