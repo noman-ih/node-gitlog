@@ -66,6 +66,9 @@ function gitlog(options, cb) {
   if (options.all){
     command += '--all '
   }
+  if(options.noMerges) {
+    command += '--no-merges '
+  }
 
   command += '-n ' + options.number
 
